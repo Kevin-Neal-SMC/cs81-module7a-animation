@@ -15,12 +15,14 @@
         const status = document.getElementById("status"); // Grab id="status" div for the purpose of updating the status message
 // I would add sound effects to the loading animation and the "Done!" message
         const frames = ["⏳", "⌛", ".", "..", "..."]; // Array of frames that will consecutively appear
+        const colors = ['yellow', 'green', 'blue', 'red', 'purple'];
         let index = 0; // Keeps track of which frame is currently appearing
         let cycleCount = 0; // Counts how many complete cycles of frames have appeared
         const maxCycles = 10; // The specified number of cycles that will occur in the loading animation
 
         const interval = setInterval(() => { // Creates looping behavior by running the code inside of it every 0.5 seconds
             loader.textContent = frames[index % frames.length];
+            loader.style.color = colors[index % frames.length];
             index++;
             if (index % frames.length === 0) { // Increase the cycleCount only after the end of the frames array has been reached
                 cycleCount++;
